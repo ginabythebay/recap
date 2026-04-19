@@ -1,0 +1,19 @@
+[project]
+name = "recap"
+version = "0.1.0"
+description = "Browser-based viewer for pr-review sessions"
+readme = "README.md"
+authors = [
+    { name = "Gina White", email = "ginabythebay@gmail.com" }
+]
+requires-python = ">=3.14"
+dependencies = [
+    "flask>=3.1.3",
+]
+
+[project.scripts]
+recap = "recap.server:main"
+
+[build-system]
+requires = ["uv_build>=0.11.6,<0.12.0"]
+build-backend = "uv_build"
