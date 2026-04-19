@@ -59,7 +59,10 @@ def get_session(session_id):
     review_file = CACHE_DIR / session_id / "review.html"
     if not review_file.exists():
         abort(404, "Session not found")
-    return review_file.read_text(), 200, {"Content-Type": "text/html; charset=utf-8"}
+    html = review_file.read_text()
+    override = '<link rel="stylesheet" href="/static/review-override.css">\n</head>'
+    html = html.replace("</head>", override, 1)
+    return html, 200, {"Content-Type": "text/html; charset=utf-8"}
 
 
 def find_pid_on_port(port):

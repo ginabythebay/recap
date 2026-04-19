@@ -15,11 +15,9 @@ Recap is a local browser-based viewer for pr-review sessions stored in `~/.cache
 ## Commands
 
 ```bash
-uv run recap              # Start the server and open browser
-uv run recap --replace    # Kill existing instance and restart
-uv run pytest             # Run tests
-uv run pytest -x          # Stop on first failure
-uv run pytest path::test  # Run a single test
+uv run recap                # Start the server and open browser
+uv run recap --replace      # Kill existing instance and restart
+uv run recap --port 8000    # Use a different port
 ```
 
 ## Architecture

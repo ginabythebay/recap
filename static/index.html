@@ -4,15 +4,32 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recap</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=DM+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/static/style.css">
 </head>
 <body>
   <nav class="sidebar">
-    <div class="sidebar-header">Recap</div>
+    <div class="sidebar-header">
+      <span class="logo-text">Recap</span>
+      <span class="logo-dot"></span>
+    </div>
+    <div class="session-count" id="session-count"></div>
     <ul class="session-list" id="session-list"></ul>
   </nav>
   <main class="detail" id="detail">
-    <span class="empty-state">Select a review</span>
+    <div class="empty-state">
+      <div class="empty-icon">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+          <rect x="6" y="10" width="36" height="28" rx="3" stroke="currentColor" stroke-width="1.5" fill="none"/>
+          <line x1="12" y1="18" x2="36" y2="18" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+          <line x1="12" y1="24" x2="30" y2="24" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+          <line x1="12" y1="30" x2="26" y2="30" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" opacity="0.3"/>
+        </svg>
+      </div>
+      <p>Pick a review to read</p>
+    </div>
   </main>
   <script src="/static/app.js"></script>
 </body>
