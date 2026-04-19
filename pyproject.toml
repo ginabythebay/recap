@@ -14,6 +14,9 @@ dependencies = [
 [project.scripts]
 recap = "recap.server:main"
 
+[tool.uv.build]
+include = ["src/recap/static/**"]
+
 [build-system]
 requires = ["uv_build>=0.11.6,<0.12.0"]
 build-backend = "uv_build"

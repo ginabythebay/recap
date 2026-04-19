@@ -12,7 +12,7 @@ from pathlib import Path
 from flask import Flask, abort, jsonify, send_from_directory
 
 CACHE_DIR = Path.home() / ".cache" / "pr-review"
-STATIC_DIR = Path(__file__).resolve().parent.parent.parent / "static"
+STATIC_DIR = Path(__file__).resolve().parent / "static"
 DEFAULT_PORT = 7483
 UUID_RE = re.compile(r"^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$")
 
