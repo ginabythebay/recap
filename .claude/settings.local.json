@@ -1,0 +1,42 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(uv run:*)",
+      "Bash(grep:*)",
+      "Bash(find ./*)",
+      "Bash(wc -l ./*)",
+      "Bash(ls -lR ./*)",
+      "Bash(sort -t: -k2 -rn)",
+      "Bash(gh api:*)",
+      "Bash(for file:*)",
+      "Bash(do echo:*)",
+      "Bash(gh repo:*)",
+      "Bash(gh issue:*)",
+      "Bash(git stash:*)",
+      "Bash(ls -la ./*)",
+      "WebSearch",
+      "Bash(make test:*)",
+      "Bash(git log:*)",
+      "Bash(ls:*)",
+      "Bash(git mv *)",
+      "Bash(open *)",
+      "Bash(but --help)",
+      "Bash(but status *)",
+      "Bash(but branch *)",
+      "Bash(but push *)",
+      "Bash(gh pr *)",
+      "Bash(gh run *)",
+      "Bash(gh release *)",
+      "Bash(but commit *)",
+      "Bash(but stage *)",
+      "Bash(pr-review *)"
+    ],
+    "deny": [
+      "Bash(uv run basedpyright * --writebaseline)",
+      "Edit(.basedpyright/**)"
+    ]
+  },
+  "disabledMcpjsonServers": [
+    "grafana"
+  ]
+}
