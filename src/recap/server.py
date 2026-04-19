@@ -1,5 +1,6 @@
 import argparse
 import json
+import logging
 import os
 import re
 import signal
@@ -97,6 +98,8 @@ def main():
     parser.add_argument("--port", type=int, default=DEFAULT_PORT)
     parser.add_argument("--replace", action="store_true",
                         help="Kill existing instance and restart")
+    parser.add_argument("-q", "--quiet", action="store_true",
+                        help="Suppress HTTP access log")
     args = parser.parse_args()
 
     existing_pid = find_pid_on_port(args.port)
@@ -108,6 +111,9 @@ def main():
             print(f"Port {args.port} in use (pid {existing_pid}). "
                   f"Run with --replace to restart.", file=sys.stderr)
             sys.exit(1)
+
+    if args.quiet:
+        logging.getLogger("werkzeug").setLevel(logging.WARNING)
 
     webbrowser.open(f"http://localhost:{args.port}")
     app.run(host="127.0.0.1", port=args.port)
