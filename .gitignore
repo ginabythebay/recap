@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+dist/
+build/
+.venv/
+
+# Emacs
+*~
+\#*\#
+.dir-locals.el
+
+# OS
+.DS_Store
