@@ -37,10 +37,24 @@ def list_sessions():
         except (json.JSONDecodeError, OSError):
             continue
         summary = data.get("summary", "")
-        first_line = summary.split("\n", 1)[0].strip()
-        first_line = re.sub(r"^#+\s*", "", first_line)
-        snippet = first_line[:80] + ("..." if len(first_line) > 80 else "")
+        snippet = ""
+        for line in summary.split("\n"):
+            line = line.strip()
+            if not line or line.startswith("#"):
+                continue
+            if line.startswith("This PR "):
+                line = line[8:]
+            snippet = line[:80] + ("..." if len(line) > 80 else "")
+            break
         cwd = data.get("cwd", "")
+        if not cwd:
+            session_file = entry / "session.jsonl"
+            if session_file.exists():
+                try:
+                    first_line = json.loads(session_file.open().readline())
+                    cwd = first_line.get("cwd", "")
+                except (json.JSONDecodeError, OSError):
+                    pass
         repo = os.path.basename(cwd) if cwd else ""
         sessions.append({
             "id": entry.name,
